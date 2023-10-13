@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+  nginx:
+    image: nginx
+    container_name: docker-nginx
+    restart: always
+    ports:
+      - "80:80"
+    volumes:
+      - ${PWD}/configs:/opt/configs
+      - ${PWD}/scripts:/opt/scripts
+    networks: 
+      - personal
+    user: root
+    entrypoint: /opt/scripts/initial_run.sh
+
+
+networks:
+  personal:
+    driver: bridge

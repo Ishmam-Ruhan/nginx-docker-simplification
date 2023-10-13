@@ -1,0 +1,18 @@
+{
+  "config_filename": "ishmam.com",
+  "enable_encryption": "false",
+  "root_config": {
+    "listen": "80",
+    "server_name": "api.ishmamruhan.com",
+    "access_log": "/var/log/nginx/ishmam.com_access.log",
+    "error_log": "/var/log/nginx/ishmam.com_error.log"
+  },
+  "location_config": [
+    {
+      "location_pattern" : "/",
+      "params": {
+        "proxy_pass": "http://localhost:6789"
+      }
+    }
+  ]
+}
