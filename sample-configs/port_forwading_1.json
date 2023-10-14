@@ -1,11 +1,11 @@
 {
-  "config_filename": "ishmam.com",
+  "config_filename": "dev.example.com",
   "enable_encryption": "false",
   "root_config": {
     "listen": "80",
-    "server_name": "api.ishmamruhan.com",
-    "access_log": "/var/log/nginx/ishmam.com_access.log",
-    "error_log": "/var/log/nginx/ishmam.com_error.log"
+    "server_name": "api.example.com",
+    "access_log": "/var/log/nginx/example.com_access.log",
+    "error_log": "/var/log/nginx/example.com_error.log"
   },
   "location_config": [
     {

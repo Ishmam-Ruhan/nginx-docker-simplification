@@ -1,0 +1,20 @@
+{
+  "config_filename": "example.com",
+  "enable_encryption": "false",
+  "root_config": {
+    "listen": "80",
+    "server_name": "example.com",
+    "root": "/var/www/example_site_static_pages/",
+    "index": "index.html",
+    "access_log": "/var/log/nginx/example.com_access.log",
+    "error_log": "/var/log/nginx/example.com_error.log"
+  },
+  "location_config": [
+    {
+      "location_pattern" : "/",
+      "params": {
+        "try_files": "$uri $uri/ /index.html"
+      }
+    }
+  ]
+}

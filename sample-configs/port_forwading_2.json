@@ -1,9 +1,9 @@
 {
-  "config_filename": "example",
+  "config_filename": "api.example.com",
   "enable_encryption": "false",
   "root_config": {
     "listen": "80",
-    "server_name": "api.example.com example.com doc.example.com",
+    "server_name": "api.example.com",
     "access_log": "/var/log/nginx/example.com_access.log",
     "error_log": "/var/log/nginx/example.com_error.log"
   },
@@ -11,14 +11,7 @@
     {
       "location_pattern" : "/",
       "params": {
-        "root": "/var/www/example.com/public",
-        "index": "index.html"
-      }
-    },
-    {
-      "location_pattern" : "/api",
-      "params": {
-        "proxy_pass": "http://localhost:8080"
+        "proxy_pass": "http://localhost:6789"
       }
     },
     {
