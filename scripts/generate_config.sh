@@ -2,6 +2,7 @@
 
 json_file="$1"
 output_file="$2"
+local_configuration_file="$3"
 
 # Use jq to extract JSON data into variables
 config_filename=$(jq -r '.config_filename' "$json_file")
@@ -69,7 +70,12 @@ echo -e "$nginx_config" > "$output_file"
 
 printf "\033[32mNginx configuration for $config_filename has been generated and saved to $output_file.\n\033[m"
 
-if [ "$isRequiredEncryption" == "true" ]; then
+# Create a copy of this config file to /opt/configurations to validate configurations next time
+if [ "$local_configuration_file" != "-" ]; then
+    command cp $output_file $local_configuration_file
+fi
+
+if [ "$isRequiredEncryption" == "true" ] && [ "$local_configuration_file" != "-" ]; then
     printf "\033[32mPerforming certbot encryption for domains: $domains\n\033[m"
     command /opt/scripts/deploy_certbot.sh "$domains"
 fi
