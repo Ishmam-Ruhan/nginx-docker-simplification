@@ -26,7 +26,6 @@ fi
 if ! command -v jq &> /dev/null; then
     printf "\033[32mJQ is not installed. Attempting to install...\n\033[m"
 
-    command apt update
     command apt install jq -y
 
     # Check if jq installation was successful
@@ -44,7 +43,6 @@ fi
 if ! command -v cron &> /dev/null; then
     printf "\033[32mCRON is not installed. Attempting to install...\n\033[m"
 
-    command apt update
     command apt install cron -y
 
     # Check if cron installation was successful
