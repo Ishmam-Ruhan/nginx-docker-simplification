@@ -9,6 +9,7 @@ services:
       - "dockerhost: $DOCKERHOST"
     ports:
       - "80:80"
+      - "443:443"
     volumes:
       - ${PWD}/configs:/opt/configs
       - ${PWD}/scripts:/opt/scripts
