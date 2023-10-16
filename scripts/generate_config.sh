@@ -71,11 +71,9 @@ echo -e "$nginx_config" > "$output_file"
 printf "\033[32mNginx configuration for $config_filename has been generated and saved to $output_file.\n\033[m"
 
 # Create a copy of this config file to /opt/configurations to validate configurations next time
-if [ "$local_configuration_file" != "-" ]; then
-    command cp $output_file $local_configuration_file
-fi
+command cp "$json_file" "$local_configuration_file"
 
-if [ "$isRequiredEncryption" == "true" ] && [ "$local_configuration_file" != "-" ]; then
+if [ "$isRequiredEncryption" == "true" ] ; then
     printf "\033[32mPerforming certbot encryption for domains: $domains\n\033[m"
     command /opt/scripts/deploy_certbot.sh "$domains"
 fi
